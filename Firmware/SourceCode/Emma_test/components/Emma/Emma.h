@@ -10,10 +10,16 @@
  */
 #pragma once
 
+#include "freertos/FreeRTOS.h"
+#include "freertos/task.h"
+#define delay(ms) vTaskDelay(ms / portTICK_PERIOD_MS)
+
 #include <iostream>
 #include <string>
-
 using namespace std;
+
+
+
 
 
 #define BSP_VERISON     "v1.0"
@@ -28,6 +34,8 @@ const string EmmaLogo = R"(
   \/_____/\/_/  \/_/\/_/  \/_/\/_/\/_/
 
 )";
+
+
 
 
 class Emma {

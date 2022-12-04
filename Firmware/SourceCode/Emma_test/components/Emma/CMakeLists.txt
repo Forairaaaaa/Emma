@@ -12,6 +12,7 @@ set(EMMA_INC_DIRS
 
 # Public component requirement
 set(EMMA_REQUIRES
+    # "LovyanGFX"
 )
 
 # Private component requirement

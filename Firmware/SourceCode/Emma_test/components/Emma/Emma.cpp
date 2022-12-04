@@ -9,16 +9,17 @@
  * 
  */
 #include "Emma.h"
-#include "freertos/FreeRTOS.h"
-#include "freertos/task.h"
 #include "sdkconfig.h"
 #include "esp_chip_info.h"
 #include "esp_flash.h"
 #include "esp_log.h"
 
-using namespace std;
+// #include <Emma_LovyanGFX.hpp>
+// LGFX_ChappieCore lcd;
 
-#define delay(ms) vTaskDelay(ms / portTICK_PERIOD_MS)
+
+
+using namespace std;
 
 
 
