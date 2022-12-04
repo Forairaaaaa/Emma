@@ -1,0 +1,3 @@
+[submodule "Firmware/SourceCode/Emma_test/components/LovyanGFX"]
+	path = Firmware/SourceCode/Emma_test/components/LovyanGFX
+	url = https://github.com/lovyan03/LovyanGFX.git
