@@ -11,3 +11,49 @@
 #include "Buzzer.h"
 
 
+inline void Emma::Tone(unsigned int frequency, unsigned long duration)
+{
+    __tone(EMMA_PIN_BUZZER, frequency, duration);
+}
+
+
+inline void Emma::noTone()
+{
+    __noTone(EMMA_PIN_BUZZER);
+}
+
+/**
+ * @brief Simple buzzer test
+ * 
+ */
+void Emma::BuzzerTest()
+{
+    printf(Cowsay("Beep Test :)", 34).c_str());
+    /* Play tones */
+    int f;
+    for (f = 0; f < 2; f++) {
+        Tone(400);
+        EmmaDelay(100);
+        noTone();
+        EmmaDelay(200);
+    }
+    EmmaDelay(400);
+    for (f = 0; f < 2; f++) {
+        Tone(1000);
+        EmmaDelay(100);
+        noTone();
+        EmmaDelay(200);
+    }
+    EmmaDelay(400);
+    for (f = 100; f < 4000; f += 100) {
+        Tone(f);
+        EmmaDelay(50);
+        noTone();
+    }
+    for (f = 4000; f > 100; f -= 100) {
+        Tone(f);
+        EmmaDelay(50);
+        noTone();
+    }
+}
+

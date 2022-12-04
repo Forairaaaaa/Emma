@@ -27,7 +27,7 @@ using namespace std;
  */
 #define BSP_VERISON             "v1.0"
 #define LCD_PRINT_INIT_INFO     1
-
+#define EMMA_PIN_BUZZER         46
 
 
 
@@ -57,5 +57,8 @@ class Emma {
         void PrintBoardInfos();
         string Cowsay(string whatCowSay, int ANSIcolor);
         string Cowsay(string whatCowSay) {return Cowsay(whatCowSay, 0);}
+        void BuzzerTest();
+        inline void Tone(unsigned int frequency, unsigned long duration = 0);
+        inline void noTone();
 };
 

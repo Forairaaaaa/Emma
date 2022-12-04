@@ -13,9 +13,9 @@
 #include "Emma.h"
 
 
-void setToneChannel(uint8_t channel = 0);
-void tone(uint8_t _pin, unsigned int frequency, unsigned long duration = 0);
-void noTone(uint8_t _pin);
+void __setToneChannel(uint8_t channel = 0);
+void __tone(uint8_t _pin, unsigned int frequency, unsigned long duration = 0);
+void __noTone(uint8_t _pin);
 
 
 
