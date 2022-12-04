@@ -3,12 +3,16 @@
 # Source files directories
 set(EMMA_SRC_DIRS
     "."
+    "Buzzer/"
+    "Buzzer/Tone"
 )
 
 # Head files directories
 set(EMMA_INC_DIRS
     "."
-    "LCD"
+    "LCD/"
+    "Buzzer/"
+    "Buzzer/Tone"
 )
 
 # Public component requirement

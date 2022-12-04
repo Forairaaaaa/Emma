@@ -18,7 +18,6 @@
 
 
 
-
 void Emma::Init(bool enLcd, bool enEncoder, bool enLedRGB, bool enBuzzer)
 {
     /* LCD init */

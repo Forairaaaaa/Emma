@@ -50,8 +50,9 @@ class Emma {
   \/_____/\/_/  \/_/\/_/  \/_/\/_/\/_/
 
 )";
-
         LGFX_Emma lcd;
+
+        /* Fuctions */
         void Init(bool enLcd = true, bool enEncoder = true, bool enLedRGB = true, bool enBuzzer = true);
         void PrintBoardInfos();
         string Cowsay(string whatCowSay, int ANSIcolor);
