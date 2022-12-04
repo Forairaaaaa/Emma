@@ -8,11 +8,12 @@ set(EMMA_SRC_DIRS
 # Head files directories
 set(EMMA_INC_DIRS
     "."
+    "LCD"
 )
 
 # Public component requirement
 set(EMMA_REQUIRES
-    # "LovyanGFX"
+    "LovyanGFX"
 )
 
 # Private component requirement

@@ -6,7 +6,7 @@
 // ESP32でLovyanGFXを独自設定で利用する場合の設定例
 
 /// 独自の設定を行うクラスを、LGFX_Deviceから派生して作成します。
-class LGFX_ChappieCore : public lgfx::LGFX_Device
+class LGFX_Emma : public lgfx::LGFX_Device
 {
 /*
  クラス名は"LGFX"から別の名前に変更しても構いません。
@@ -58,7 +58,7 @@ public:
 
   // コンストラクタを作成し、ここで各種設定を行います。
   // クラス名を変更した場合はコンストラクタも同じ名前を指定してください。
-  LGFX_ChappieCore(void)
+  LGFX_Emma(void)
   {
     { // バス制御の設定を行います。
       auto cfg = _bus_instance.config();    // バス設定用の構造体を取得します。

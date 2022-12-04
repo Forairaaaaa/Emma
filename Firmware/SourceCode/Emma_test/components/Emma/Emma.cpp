@@ -14,36 +14,24 @@
 #include "esp_flash.h"
 #include "esp_log.h"
 
-// #include <Emma_LovyanGFX.hpp>
-// LGFX_ChappieCore lcd;
-
-
-
-using namespace std;
 
 
 
 
-int Emma::Init()
+
+void Emma::Init(bool enLcd, bool enEncoder, bool enLedRGB, bool enBuzzer)
 {
+    /* LCD init */
+    if (enLcd) {
+        lcd.init();
+    }
+    
+    /* Print infomations */
     PrintBoardInfos();
 
-    
 
 
-
-
-
-
-    while (1) {
-        // cout << "?" << endl;
-        delay(3000);
-    }
-
-    return 0;
 }
-
-
 
 
 
@@ -68,10 +56,21 @@ void Emma::PrintBoardInfos()
     }
     printf(" %luMB %s flash\n", flash_size / (1024 * 1024),
            (chip_info.features & CHIP_FEATURE_EMB_FLASH) ? "embedded" : "external");
-    printf(" Minimum free heap size: %ld bytes\n", esp_get_minimum_free_heap_size());
+    printf(" Minimum free heap size: %ld bytes\n\n", esp_get_minimum_free_heap_size());
 
-    // printf(Cowsay("Emma HMI Core Boarad :)", 0).c_str());
+    /* Print infos on LCD */
+    #if LCD_PRINT_INIT_INFO
+    lcd.setCursor(0, 0);
+    lcd.printf(EmmaLogo.c_str());
+    lcd.printf(" Emma HMI Core Boarad :)\n BSP %s\n", BSP_VERISON);
+    lcd.printf(" %luMB %s flash\n", flash_size / (1024 * 1024),
+           (chip_info.features & CHIP_FEATURE_EMB_FLASH) ? "embedded" : "external");
+    lcd.printf(" Minimum free heap size: %ld bytes\n\n", esp_get_minimum_free_heap_size());
+    #endif
+
+    // printf(Cowsay("Emma HMI Core Boarad :)").c_str());
 }
+
 
 
 /**
@@ -105,7 +104,12 @@ string Emma::Cowsay(string whatCowSay, int ANSIcolor)
                 ||----w |
                 ||     ||
     )");
-    ret.append("\033[0m\n");
+    /* Reset color */
+    if (ANSIcolor != 0)
+        ret.append("\033[0m\n");
+    else
+        ret.append("\n");
     
     return ret;
 }
+

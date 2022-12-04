@@ -12,21 +12,37 @@
 
 #include "freertos/FreeRTOS.h"
 #include "freertos/task.h"
-#define delay(ms) vTaskDelay(ms / portTICK_PERIOD_MS)
+#define EmmaDelay(ms) vTaskDelay(ms / portTICK_PERIOD_MS)
 
 #include <iostream>
 #include <string>
 using namespace std;
 
+#include <LovyanGFX_Emma.hpp>
+
+
+/**
+ * @brief Configs
+ * 
+ */
+#define BSP_VERISON             "v1.0"
+#define LCD_PRINT_INIT_INFO     1
 
 
 
 
-#define BSP_VERISON     "v1.0"
 
 
 
-const string EmmaLogo = R"(
+/**
+ * @brief Emma class
+ * 
+ */
+class Emma {
+    private:
+        
+    public:
+        const string EmmaLogo = R"(
  ______  __    __  __    __  ______
 /\  ___\/\ "-./  \/\ "-./  \/\  __ \
 \ \  __\\ \ \-./\ \ \ \-./\ \ \  __ \
@@ -35,16 +51,10 @@ const string EmmaLogo = R"(
 
 )";
 
-
-
-
-class Emma {
-private:
-    int test;
-public:
-    int Init();
-    void PrintBoardInfos();
-    string Cowsay(string whatCowSay, int ANSIcolor);
-    void PrintLogo();
+        LGFX_Emma lcd;
+        void Init(bool enLcd = true, bool enEncoder = true, bool enLedRGB = true, bool enBuzzer = true);
+        void PrintBoardInfos();
+        string Cowsay(string whatCowSay, int ANSIcolor);
+        string Cowsay(string whatCowSay) {return Cowsay(whatCowSay, 0);}
 };
 
