@@ -19,6 +19,7 @@
 using namespace std;
 
 #include <LovyanGFX_Emma.hpp>
+#include "led_strip.h"
 
 
 
@@ -49,14 +50,9 @@ using namespace std;
 
 
 
-
-/**
- * @brief Emma class
- * 
- */
-class Emma {
+class EMMA {
     private:
-        
+        led_strip_handle_t __RGB_LED_Handler;
     public:
         const string EmmaLogo = R"(
  ______  __    __  __    __  ______
@@ -75,10 +71,16 @@ class Emma {
         void PrintBoardInfos();
         /* Cowsay */
         string Cowsay(string whatCowSay, int ANSIcolor);
-        string Cowsay(string whatCowSay) {return Cowsay(whatCowSay, 0);}
+        string Cowsay(string whatCowSay) { return Cowsay(whatCowSay, 0); }
         /* Buzzer */
         inline void StartTone(unsigned int frequency, unsigned long duration = 0);
         inline void StopTone();
         void BuzzerTest();
+        /* RGB LED */
+        void RgbLedInit(uint32_t ledNum = 1);
+        void RgbLedSet(uint32_t index, uint32_t colorRGB);
+        void RgbLedSet(int colorRGB) { RgbLedSet(0, colorRGB); };
+        inline void RgbLedUpdate();
+        void RgbLedShow(uint32_t index, int colorRGB);
+        void RgbLedShow(int colorRGB) { RgbLedShow(0, colorRGB); };
 };
-

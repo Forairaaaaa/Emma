@@ -18,7 +18,7 @@
 
 
 
-void Emma::Init(bool enLcd, bool enEncoder, bool enLedRGB, bool enBuzzer)
+void EMMA::Init(bool enLcd, bool enEncoder, bool enLedRGB, bool enBuzzer)
 {
     /* LCD init */
     if (enLcd) {
@@ -27,6 +27,11 @@ void Emma::Init(bool enLcd, bool enEncoder, bool enLedRGB, bool enBuzzer)
     
     /* Print infomations */
     PrintBoardInfos();
+
+    /* RGB LED init */
+    if (enLedRGB) {
+        RgbLedInit();
+    }
 
 
 
@@ -39,7 +44,7 @@ void Emma::Init(bool enLcd, bool enEncoder, bool enLedRGB, bool enBuzzer)
  * @brief Print board's infomations
  * 
  */
-void Emma::PrintBoardInfos()
+void EMMA::PrintBoardInfos()
 {
     /* Print Logo */
     printf(EmmaLogo.c_str());
@@ -79,7 +84,7 @@ void Emma::PrintBoardInfos()
  * @param ANSIcolor 
  * @return string what cow is saying
  */
-string Emma::Cowsay(string whatCowSay, int ANSIcolor)
+string EMMA::Cowsay(string whatCowSay, int ANSIcolor)
 {
     string ret;
 
