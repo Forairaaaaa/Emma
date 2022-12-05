@@ -3,18 +3,20 @@
 # Source files directories
 set(EMMA_SRC_DIRS
     "."
-    "Buzzer/"
+    "Buzzer"
     "Buzzer/Tone"
     "RGBLED"
+    "RGBLED/led_strip"
 )
 
 # Head files directories
 set(EMMA_INC_DIRS
     "."
-    "LCD/"
-    "Buzzer/"
+    "LCD"
+    "Buzzer"
     "Buzzer/Tone"
     "RGBLED"
+    "RGBLED/led_strip"
 )
 
 # Public component requirement

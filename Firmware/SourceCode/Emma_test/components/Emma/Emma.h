@@ -37,7 +37,15 @@ using namespace std;
 #define EMMA_PIN_LCD_CS         21
 #define EMMA_PIN_LCD_DC         16
 #define EMMA_PIN_LCD_BL         14
-
+/* ANSI colors */
+#define ANSI_BLACK              30
+#define ANSI_RED                31
+#define ANSI_GREEN              32
+#define ANSI_YELLOW             33
+#define ANSI_BLUE               34
+#define ANSI_MAGENTA            35
+#define ANSI_CYAN               36
+#define ANSI_WHITE              37
 
 
 
