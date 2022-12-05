@@ -11,15 +11,14 @@
 #include "Buzzer.h"
 
 
-inline void Emma::Tone(unsigned int frequency, unsigned long duration)
+inline void Emma::StartTone(unsigned int frequency, unsigned long duration)
 {
-    __tone(EMMA_PIN_BUZZER, frequency, duration);
+    tone(EMMA_PIN_BUZZER, frequency, duration);
 }
 
-
-inline void Emma::noTone()
+inline void Emma::StopTone()
 {
-    __noTone(EMMA_PIN_BUZZER);
+    noTone(EMMA_PIN_BUZZER);
 }
 
 /**
@@ -32,28 +31,21 @@ void Emma::BuzzerTest()
     /* Play tones */
     int f;
     for (f = 0; f < 2; f++) {
-        Tone(400);
-        EmmaDelay(100);
-        noTone();
-        EmmaDelay(200);
-    }
-    EmmaDelay(400);
-    for (f = 0; f < 2; f++) {
-        Tone(1000);
-        EmmaDelay(100);
-        noTone();
-        EmmaDelay(200);
+        StartTone(1000);
+        EmmaDelay(50);
+        StopTone();
+        EmmaDelay(20);
     }
     EmmaDelay(400);
     for (f = 100; f < 4000; f += 100) {
-        Tone(f);
+        StartTone(f);
         EmmaDelay(50);
-        noTone();
+        StopTone();
     }
     for (f = 4000; f > 100; f -= 100) {
-        Tone(f);
+        StartTone(f);
         EmmaDelay(50);
-        noTone();
+        StopTone();
     }
 }
 

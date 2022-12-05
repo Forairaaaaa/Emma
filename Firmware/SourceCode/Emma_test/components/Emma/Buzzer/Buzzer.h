@@ -12,10 +12,12 @@
 
 #include "Emma.h"
 
-
-void __setToneChannel(uint8_t channel = 0);
-void __tone(uint8_t _pin, unsigned int frequency, unsigned long duration = 0);
-void __noTone(uint8_t _pin);
+/**
+ * Steal from Arduino esp32 :(
+ */
+void setToneChannel(uint8_t channel = 0);
+void tone(uint8_t _pin, unsigned int frequency, unsigned long duration = 0);
+void noTone(uint8_t _pin);
 
 
 

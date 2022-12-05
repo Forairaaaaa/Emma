@@ -21,14 +21,22 @@ using namespace std;
 #include <LovyanGFX_Emma.hpp>
 
 
-/**
- * @brief Configs
- * 
- */
+
+/* Configs */
 #define BSP_VERISON             "v1.0"
 #define LCD_PRINT_INIT_INFO     1
+/* GPIO map */
 #define EMMA_PIN_BUZZER         46
-
+#define EMMA_PIN_RGB_LED        1
+#define EMMA_PIN_EC_BT          2
+#define EMMA_PIN_EC_A           18
+#define EMMA_PIN_EC_B           3
+#define EMMA_PIN_LCD_RST        17
+#define EMMA_PIN_LCD_SDA        15
+#define EMMA_PIN_LCD_SCL        13
+#define EMMA_PIN_LCD_CS         21
+#define EMMA_PIN_LCD_DC         16
+#define EMMA_PIN_LCD_BL         14
 
 
 
@@ -52,13 +60,17 @@ class Emma {
 )";
         LGFX_Emma lcd;
 
-        /* Fuctions */
+        /**
+         * Functions
+         */
         void Init(bool enLcd = true, bool enEncoder = true, bool enLedRGB = true, bool enBuzzer = true);
         void PrintBoardInfos();
+        /* Cowsay */
         string Cowsay(string whatCowSay, int ANSIcolor);
         string Cowsay(string whatCowSay) {return Cowsay(whatCowSay, 0);}
+        /* Buzzer */
+        inline void StartTone(unsigned int frequency, unsigned long duration = 0);
+        inline void StopTone();
         void BuzzerTest();
-        inline void Tone(unsigned int frequency, unsigned long duration = 0);
-        inline void noTone();
 };
 

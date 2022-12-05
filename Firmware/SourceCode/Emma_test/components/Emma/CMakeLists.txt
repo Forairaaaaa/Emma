@@ -5,6 +5,7 @@ set(EMMA_SRC_DIRS
     "."
     "Buzzer/"
     "Buzzer/Tone"
+    "RGBLED"
 )
 
 # Head files directories
@@ -13,6 +14,7 @@ set(EMMA_INC_DIRS
     "LCD/"
     "Buzzer/"
     "Buzzer/Tone"
+    "RGBLED"
 )
 
 # Public component requirement

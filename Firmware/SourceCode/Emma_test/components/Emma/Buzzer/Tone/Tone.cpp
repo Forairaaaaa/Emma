@@ -92,7 +92,7 @@ static int tone_init(){
   return 1; // OK
 }
 
-void __setToneChannel(uint8_t channel){
+void setToneChannel(uint8_t channel){
   ESP_LOGD(TAG, "channel=%d", channel);
   if(tone_init()){
     tone_msg_t tone_msg = {
@@ -106,7 +106,7 @@ void __setToneChannel(uint8_t channel){
   }
 }
 
-void __noTone(uint8_t _pin){
+void noTone(uint8_t _pin){
   ESP_LOGD(TAG, "noTone was called");
   if(tone_init()){
     tone_msg_t tone_msg = {
@@ -125,7 +125,7 @@ void __noTone(uint8_t _pin){
 // frequency - PWM frequency in Hz
 // duration - time in ms - how long will the signal be outputted.
 //   If not provided, or 0 you must manually call noTone to end output
-void __tone(uint8_t _pin, unsigned int frequency, unsigned long duration){
+void tone(uint8_t _pin, unsigned int frequency, unsigned long duration){
   ESP_LOGD(TAG, "_pin=%d, frequency=%u Hz, duration=%lu ms", _pin, frequency, duration);
   if(tone_init()){
     tone_msg_t tone_msg = {
