@@ -12,6 +12,16 @@
 #include "driver/gpio.h"
 
 
+/* Struct to pass pin config to task */
+struct EncoderPins_t
+{
+    int pinA;
+    int pinB;
+};
+static EncoderPins_t EncoderPins;
+
+/* Status of encoder */
+static int EncoderStatus = 0;
 
 
 
@@ -22,10 +32,8 @@
  */
 void EncoderTask(void* param)
 {
-    int stateA = 0;
-    int stateB = 0;
-    int stateOldA = 0;
-    int stateOldB = 0;
+    /* Get encoder pin config */
+    EncoderPins_t* encoderPins = (EncoderPins_t*)param;
 
     while (1) {
 
@@ -55,7 +63,9 @@ void Encoder::Init()
     }
 
     /* Create encoder task */
-    xTaskCreate(EncoderTask, "Encoder", 1024, NULL, _ecTaskPriority, &_ecTaskHandle);
+    EncoderPins.pinA = _pinA;
+    EncoderPins.pinB = _pinB;
+    xTaskCreate(EncoderTask, "Encoder", 1024, (void*)&EncoderPins, _ecTaskPriority, &_ecTaskHandle);
 }
 
 
@@ -81,6 +91,18 @@ void Encoder::SetPin(int pinA, int pinB)
 {
     _pinA = pinA;
     _pinB = pinB;
+}
+
+
+/**
+ * @brief Return status of encoder
+ * 
+ * @return int 
+ */
+int Encoder::Status()
+{
+    /* if lock ... */
+    // return EncoderStatus;
 }
 
 

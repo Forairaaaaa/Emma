@@ -14,7 +14,6 @@
 #include "freertos/task.h"
 
 
-
 class Encoder {
     private:
         int _pinA;
@@ -29,6 +28,7 @@ class Encoder {
         void Init(int pinA, int pinB) { SetPin(pinA, pinB); Init(); }
         void Uninit();
         void SetPin(int pinA, int pinB);
+        int Status();
 };
 
 
