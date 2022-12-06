@@ -19,7 +19,7 @@ git add .
 # Git commit
 echo "Commit message:"
 read
-git commit -a -m "\"${REPLY}\""
+git commit -a -m "${REPLY}"
 # echo git commit -a -m "\"${REPLY}\""
 
 # Git push

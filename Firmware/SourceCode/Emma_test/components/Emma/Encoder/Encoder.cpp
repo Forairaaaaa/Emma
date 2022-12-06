@@ -30,7 +30,7 @@ static int EncoderStatus = 0;
  * 
  * @param param 
  */
-void EncoderTask(void* param)
+static void EncoderTask(void* param)
 {
     /* Get encoder pin config */
     EncoderPins_t* encoderPins = (EncoderPins_t*)param;
