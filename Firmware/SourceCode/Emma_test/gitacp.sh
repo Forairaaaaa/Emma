@@ -23,13 +23,13 @@ git commit -a -m "\"${REPLY}\""
 # echo git commit -a -m "\"${REPLY}\""
 
 # Git push
-# while true; do
-#     read -p "Do you wish to git push? (\no) " yn
-#     case $yn in
-#         [Yy]* ) break;;
-#         [Nn]* ) echo "No push, exit"; exit;;
-#         * )     echo "No push, exit"; exit;;
-#     esac
-# done
-# git push
+while true; do
+    read -p "Do you wish to git push? (\no) " yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) echo "No push, exit"; exit;;
+        * )     echo "No push, exit"; exit;;
+    esac
+done
+git push
 
