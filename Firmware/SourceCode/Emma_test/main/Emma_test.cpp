@@ -12,22 +12,25 @@
 
 EMMA Emma;
 
-// #include "iot_button.h"
-#include "esp_log.h"
-#define TAG "button"
-#include "Button.h"
 
 
+static void LedTask(void* param)
+{
+    uint8_t brightness = 0;
+    uint8_t color = 0;
+    while (1) {
+        Emma.RgbLedShow((brightness++) << color);
+        if (brightness == 70) {
+            brightness = 0;
+            color += 8;
+            if (color > 16)
+                color = 0;
+        }
+        EmmaDelay(40);
+    }
+    vTaskDelete(NULL);
+}
 
-// static void LedTask(void* param)
-// {
-//     unsigned int 
-//     while (1) {
-        
-//         Emma.RgbLedShow()
-//     }
-//     vTaskDelete(NULL);
-// }
 
 
 extern "C" void app_main(void)
@@ -37,7 +40,7 @@ extern "C" void app_main(void)
     printf(Emma.Cowsay("Meow~~").c_str());
     Emma.lcd.printf(Emma.Cowsay("Meow~~").c_str());
 
-
+    xTaskCreate(LedTask, "RGB-LED", 1024, NULL, 1, NULL);
 
     Emma.BuzzerTest();
 
