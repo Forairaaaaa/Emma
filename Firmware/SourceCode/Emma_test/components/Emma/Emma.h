@@ -52,7 +52,7 @@ using namespace std;
 
 class EMMA {
     private:
-        led_strip_handle_t __RGB_LED_Handler;
+        led_strip_handle_t _RGB_LED_Handler;
     public:
         const string EmmaLogo = R"(
  ______  __    __  __    __  ______

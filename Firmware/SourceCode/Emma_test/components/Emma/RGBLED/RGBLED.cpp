@@ -25,7 +25,7 @@ void EMMA::RgbLedInit(uint32_t ledNum)
     led_gpio.strip_gpio_num = EMMA_PIN_RGB_LED;
     led_strip_rmt_config_t led_rmt;
     led_rmt.resolution_hz = 0;
-    led_strip_new_rmt_device(&led_gpio, &led_rmt, &__RGB_LED_Handler);
+    led_strip_new_rmt_device(&led_gpio, &led_rmt, &_RGB_LED_Handler);
 }
 
 
@@ -41,7 +41,7 @@ void EMMA::RgbLedSet(uint32_t index, uint32_t colorRGB)
     int red = (colorRGB >> 16) & 0xFF;
     int green = (colorRGB >> 8) & 0xFF;
     int blue = colorRGB & 0xFF;
-    led_strip_set_pixel(__RGB_LED_Handler, index, red, green, blue);
+    led_strip_set_pixel(_RGB_LED_Handler, index, red, green, blue);
 }
 
 
@@ -51,7 +51,7 @@ void EMMA::RgbLedSet(uint32_t index, uint32_t colorRGB)
  */
 inline void EMMA::RgbLedUpdate()
 {
-    led_strip_refresh(__RGB_LED_Handler);
+    led_strip_refresh(_RGB_LED_Handler);
 }
 
 
