@@ -27,13 +27,13 @@ extern "C" void app_main(void)
     Emma.BuzzerTest();
 
     while (1) {
-        Emma.RgbLedShow(0xFF0000);
+        Emma.RgbLedShow(0x0F0000);
         printf("%s", Emma.Cowsay("R", ANSI_RED).c_str());
         EmmaDelay(1000);
-        Emma.RgbLedShow(0x00FF00);
+        Emma.RgbLedShow(0x000F00);
         printf("%s", Emma.Cowsay("G", ANSI_GREEN).c_str());
         EmmaDelay(1000);
-        Emma.RgbLedShow(0x0000FF);
+        Emma.RgbLedShow(0x00000F);
         printf("%s", Emma.Cowsay("B", ANSI_BLUE).c_str());
         EmmaDelay(1000);
     }

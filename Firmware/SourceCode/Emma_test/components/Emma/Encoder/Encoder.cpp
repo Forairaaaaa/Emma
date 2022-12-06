@@ -102,7 +102,7 @@ void Encoder::SetPin(int pinA, int pinB)
 int Encoder::Status()
 {
     /* if lock ... */
-    // return EncoderStatus;
+    return EncoderStatus;
 }
 
 
