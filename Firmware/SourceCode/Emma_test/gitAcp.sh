@@ -20,7 +20,6 @@ git add .
 echo "Commit message:"
 read
 git commit -a -m "${REPLY}"
-# echo git commit -a -m "\"${REPLY}\""
 
 # Git push
 while true; do
