@@ -7,6 +7,8 @@ set(EMMA_SRC_DIRS
     "Buzzer/Tone"
     "RGBLED"
     "RGBLED/led_strip"
+    "Encoder"
+    "Button"
 )
 
 # Head files directories
@@ -17,6 +19,8 @@ set(EMMA_INC_DIRS
     "Buzzer/Tone"
     "RGBLED"
     "RGBLED/led_strip"
+    "Encoder"
+    "Button"
 )
 
 # Public component requirement
@@ -27,6 +31,7 @@ set(EMMA_REQUIRES
 # Private component requirement
 set(EMMA_PRIV_REQUIRES
     "spi_flash"
+    "esp_timer"
 )
 
 # Register component

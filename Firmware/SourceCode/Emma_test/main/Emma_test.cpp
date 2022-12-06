@@ -9,7 +9,6 @@
  * 
  */
 #include "Emma.h"
-#include "led_strip.h"
 
 EMMA Emma;
 
