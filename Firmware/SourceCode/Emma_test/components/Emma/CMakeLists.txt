@@ -9,6 +9,7 @@ set(EMMA_SRC_DIRS
     "RGBLED/led_strip"
     "Encoder"
     "Button"
+    "Button/iot_button"
 )
 
 # Head files directories
@@ -21,6 +22,7 @@ set(EMMA_INC_DIRS
     "RGBLED/led_strip"
     "Encoder"
     "Button"
+    "Button/iot_button"
 )
 
 # Public component requirement

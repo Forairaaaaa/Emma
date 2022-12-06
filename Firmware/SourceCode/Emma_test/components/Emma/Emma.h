@@ -29,7 +29,7 @@ using namespace std;
 /* GPIO map */
 #define EMMA_PIN_BUZZER         46
 #define EMMA_PIN_RGB_LED        1
-#define EMMA_PIN_EC_BT          2
+#define EMMA_PIN_EC_BTN         2
 #define EMMA_PIN_EC_A           18
 #define EMMA_PIN_EC_B           3
 #define EMMA_PIN_LCD_RST        17
