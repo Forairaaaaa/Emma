@@ -39,12 +39,12 @@ void EMMA::BuzzerTest()
     EmmaDelay(400);
     for (f = 100; f < 4000; f += 100) {
         StartTone(f);
-        EmmaDelay(50);
+        EmmaDelay(10);
         StopTone();
     }
     for (f = 4000; f > 100; f -= 100) {
         StartTone(f);
-        EmmaDelay(50);
+        EmmaDelay(10);
         StopTone();
     }
 }

@@ -50,9 +50,14 @@ static void EncoderTask(void* param)
         if (stateA != stateA_old) {
             EncoderDirection = (stateA == stateB) ? 1 : -1;
         }
+        else {
+            EncoderDirection = 0;
+        }
+
+        stateA_old = stateA;
 
 
-
+        vTaskDelay(20 / portTICK_PERIOD_MS);
     }
     vTaskDelete(NULL);
 }
@@ -134,4 +139,26 @@ Encoder::Encoder()
 Encoder::~Encoder()
 {
     Uninit();
+}
+
+
+/**
+ * @brief Get the Direction object
+ * 
+ * @return int 
+ */
+int Encoder::GetDirection()
+{
+    return EncoderDirection;
+}
+
+
+/**
+ * @brief Get the Position object
+ * 
+ * @return int 
+ */
+int Encoder::GetPosition()
+{
+    return 0;
 }

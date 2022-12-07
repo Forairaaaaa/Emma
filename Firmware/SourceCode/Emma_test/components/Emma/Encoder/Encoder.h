@@ -29,6 +29,8 @@ class Encoder {
         void Init();
         void Init(int pinA, int pinB) { SetPin(pinA, pinB); Init(); }
         void Uninit();
+        int GetDirection();
+        int GetPosition();
 };
 
 

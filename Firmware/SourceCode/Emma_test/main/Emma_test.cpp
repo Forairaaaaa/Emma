@@ -9,8 +9,54 @@
  * 
  */
 #include "Emma.h"
-
 EMMA Emma;
+
+
+
+#include "Encoder.h"
+Encoder ec;
+
+
+
+
+
+
+static void LedTask(void* param);
+
+
+extern "C" void app_main(void)
+{
+    Emma.Init();
+
+    printf(Emma.Cowsay("Meow~~").c_str());
+    Emma.lcd.printf(Emma.Cowsay("Meow~~").c_str());
+
+    xTaskCreate(LedTask, "RGB-LED", 1024, NULL, 1, NULL);
+
+    Emma.BuzzerTest();
+
+
+
+
+
+    ec.Init(EMMA_PIN_EC_A, EMMA_PIN_EC_B);
+    while (1) {
+        printf("%d\n", ec.GetDirection());
+        EmmaDelay(100);
+    }
+
+
+
+
+    
+
+
+    
+
+    while (1) {
+        EmmaDelay(5000);
+    }
+}
 
 
 
@@ -30,29 +76,3 @@ static void LedTask(void* param)
     }
     vTaskDelete(NULL);
 }
-
-
-
-extern "C" void app_main(void)
-{
-    Emma.Init();
-
-    printf(Emma.Cowsay("Meow~~").c_str());
-    Emma.lcd.printf(Emma.Cowsay("Meow~~").c_str());
-
-    xTaskCreate(LedTask, "RGB-LED", 1024, NULL, 1, NULL);
-
-    Emma.BuzzerTest();
-
-
-
-    
-
-
-    
-
-    while (1) {
-        EmmaDelay(5000);
-    }
-}
-
