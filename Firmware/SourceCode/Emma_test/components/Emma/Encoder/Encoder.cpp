@@ -20,8 +20,10 @@ struct EncoderPins_t
 };
 static EncoderPins_t EncoderPins;
 
-/* Status of encoder */
-static int EncoderStatus = 0;
+/* Values of encoder */
+static int EncoderPositoin;
+static int EncoderDirection;
+
 
 
 
@@ -35,7 +37,20 @@ static void EncoderTask(void* param)
     /* Get encoder pin config */
     EncoderPins_t* encoderPins = (EncoderPins_t*)param;
 
+    bool stateA = 0;
+    bool stateB = 0;
+    bool stateA_old = 0;
+
     while (1) {
+        /* Get pin state */
+        stateA = gpio_get_level((gpio_num_t)encoderPins->pinA);
+        stateB = gpio_get_level((gpio_num_t)encoderPins->pinB);
+
+        /* If edge changed */
+        if (stateA != stateA_old) {
+            EncoderDirection = (stateA == stateB) ? 1 : -1;
+        }
+
 
 
     }
@@ -94,17 +109,6 @@ void Encoder::SetPin(int pinA, int pinB)
 }
 
 
-/**
- * @brief Return status of encoder
- * 
- * @return int 
- */
-int Encoder::Status()
-{
-    /* if lock ... */
-    return EncoderStatus;
-}
-
 
 
 
@@ -117,6 +121,7 @@ Encoder::Encoder()
     _pinA = -1;
     _pinB = -1;
     _enPullup = true;
+    _reverse = false;
     _ecTaskHandle = NULL;
     _ecTaskPriority = 1;
 }

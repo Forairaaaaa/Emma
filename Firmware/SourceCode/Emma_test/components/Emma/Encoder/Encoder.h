@@ -19,16 +19,16 @@ class Encoder {
         int _pinA;
         int _pinB;
         bool _enPullup;
+        bool _reverse;
         TaskHandle_t _ecTaskHandle;
         unsigned int _ecTaskPriority;
     public:
         Encoder();
         ~Encoder();
+        void SetPin(int pinA, int pinB);
         void Init();
         void Init(int pinA, int pinB) { SetPin(pinA, pinB); Init(); }
         void Uninit();
-        void SetPin(int pinA, int pinB);
-        int Status();
 };
 
 
