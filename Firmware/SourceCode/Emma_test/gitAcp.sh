@@ -23,7 +23,7 @@ git commit -a -m "${REPLY}"
 
 # Git push
 while true; do
-    read -p "Do you wish to git push? (\no)" yn
+    read -p "Do you wish to git push? [y/N]" yn
     case $yn in
         [Yy]* ) break;;
         [Nn]* ) echo "No push, exit"; exit;;
