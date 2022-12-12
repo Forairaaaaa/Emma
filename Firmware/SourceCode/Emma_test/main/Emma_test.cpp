@@ -11,8 +11,8 @@
 #include "Emma.h"
 EMMA Emma;
 
-#include "Encoder.h"
-Encoder ec;
+// #include "Encoder.h"
+// ENCODER ec;
 
 
 extern "C" void app_main(void)
@@ -25,10 +25,20 @@ extern "C" void app_main(void)
 
     
 
-    ec.Init(EMMA_PIN_EC_A, EMMA_PIN_EC_B, EMMA_PIN_EC_BTN);
+    // ec.Init(EMMA_PIN_EC_A, EMMA_PIN_EC_B, EMMA_PIN_EC_BTN);
     while (1) {
-        cout << ec.Btn.pressed() << endl;
-        delay(100);
+
+        if (Emma.Encoder.Btn.pressed()) {
+            Emma.Encoder.ResetPosition();
+            cout << Emma.Encoder.GetPosition() << endl;
+        }
+
+        if (Emma.Encoder.Moved())
+            cout << Emma.Encoder.GetPosition() << endl;
+
+
+
+        delay(10);
     }
 
 
