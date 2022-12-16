@@ -11,8 +11,13 @@
 #include "Emma.h"
 EMMA Emma;
 
-// #include "Encoder.h"
-// ENCODER ec;
+
+#include "lvgl.h"
+#include "lv_port_disp.h"
+#include "demos/lv_demos.h"
+
+
+
 
 
 extern "C" void app_main(void)
@@ -23,9 +28,26 @@ extern "C" void app_main(void)
     Emma.Lcd.printf(Emma.Cowsay("Meow~~").c_str());
     Emma.BuzzerTest();
 
+
+    delay(1000);
+    lv_init();
+    lv_port_disp_init(&Emma.Lcd);
+    // lv_demo_benchmark();
+    // lv_demo_widgets();
+    lv_demo_stress();
+
+
+
+
+
+    while (1) {
+        lv_timer_handler();
+        delay(5);
+    }
     
 
-    // ec.Init(EMMA_PIN_EC_A, EMMA_PIN_EC_B, EMMA_PIN_EC_BTN);
+
+
     while (1) {
 
         if (Emma.Encoder.Btn.pressed()) {
