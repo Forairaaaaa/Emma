@@ -6,3 +6,7 @@
 [submodule "Firmware/SourceCode/Emma_test/components/EmmaBSP"]
 	path = Firmware/SourceCode/Emma_test/components/EmmaBSP
 	url = https://github.com/Forairaaaaa/EmmaBSP.git
+[submodule "Firmware/SourceCode/Emma_test/components/lvgl"]
+        path = Firmware/SourceCode/Emma_test/components/lvgl
+        url = https://github.com/lvgl/lvgl.git
+        branch = v8.3.4
