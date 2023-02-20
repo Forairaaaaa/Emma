@@ -3,9 +3,6 @@
 	path = Firmware/SourceCode/Emma_test/components/LovyanGFX
 	url = https://github.com/lovyan03/LovyanGFX.git
 	branch = develop
-[submodule "Firmware/SourceCode/Emma_test/components/EmmaBSP"]
-	path = Firmware/SourceCode/Emma_test/components/EmmaBSP
-	url = https://github.com/Forairaaaaa/EmmaBSP.git
 [submodule "Firmware/SourceCode/Emma_test/components/lvgl"]
         path = Firmware/SourceCode/Emma_test/components/lvgl
         url = https://github.com/lvgl/lvgl.git
